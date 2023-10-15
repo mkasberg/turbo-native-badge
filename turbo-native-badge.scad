@@ -16,8 +16,7 @@ color("#522B23") linear_extrude(thickness) {
   
   // Lightning bolt
   translate([-540, -540, 0]) {
-    import("turbo-native-badge.svg", id="bolt-half");
-    import("turbo-native-badge.svg", id="bolt-half-2");
+    polygon([[860, 860], [380, 540], [490, 540], [220,220], [700, 540], [590, 540], [860, 860]]);
   }
 }
 
