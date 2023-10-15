@@ -59,7 +59,7 @@ module badge() {
 
   // Body
   difference() {
-    cylinder(h=0.8*thickness, r=0.99*radius, $fn=180);
+    cylinder(h=0.75*thickness, r=0.99*radius, $fn=180);
     translate([0, 0, -0.01]) cylinder(h=thickness, r=0.601*radius, $fn=180);
   }
 }
