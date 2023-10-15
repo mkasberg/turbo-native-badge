@@ -10,8 +10,8 @@ thickness = 100;
 color("#522B23") linear_extrude(thickness) {
   // Outer ring:
   difference() {
-    circle(525);
-    circle(495);
+    circle(525, $fn=180);
+    circle(495, $fn=180);
   }
   
   // Lightning bolt
@@ -25,8 +25,8 @@ color("#522B23") linear_extrude(thickness) {
 color("#522B23") linear_extrude(0.9 * thickness) {
   // Thin ring
   difference() {
-    circle(462.5);
-    circle(457.5);
+    circle(462.5, $fn=180);
+    circle(457.5, $fn=180);
   }
   
   dots();
@@ -37,20 +37,20 @@ color("#522B23") linear_extrude(0.9 * thickness) {
   
   // Innermost ring
   difference() {
-    circle(331);
-    circle(319);
+    circle(331, $fn=180);
+    circle(319, $fn=180);
   }
   
   side_bars();
 }
 
 // Inner low part
-cylinder(h=0.5*thickness, r=320);
+cylinder(h=0.5*thickness, r=320, $fn=180);
 
 // Body
 difference() {
-  cylinder(h=0.75*thickness, r=500);
-  translate([0, 0, -0.01]) cylinder(h=thickness, r=320);
+  cylinder(h=0.75*thickness, r=500, $fn=180);
+  translate([0, 0, -0.01]) cylinder(h=thickness, r=320, $fn=180);
 }
 
 module dot() {
@@ -111,8 +111,8 @@ module bottom_revolve_text(radius, chars, deg) {
 
 module side_bars() {
   difference() {
-    circle(410);
-    circle(360);
+    circle(410, $fn=180);
+    circle(360, $fn=180);
     polygon([[-320, 200], [-260, 500], [260, 500], [320, 200]]);
     polygon([[-320, -200], [-260, -500], [260, -500], [320, -200]]);
   }
