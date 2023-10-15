@@ -26,7 +26,7 @@ module badge() {
     }
     
     // Lightning bolt
-    scale([diameter / 1050, diameter / 1050, 1]) translate([-540, -540, 0]) {
+    scale([0.98 * diameter / 1050, 0.98 * diameter / 1050, 1]) translate([-540, -540, 0]) {
       polygon([[860, 860], [380, 540], [490, 540], [220,220], [700, 540], [590, 540], [860, 860]]);
     }
   }
@@ -35,20 +35,20 @@ module badge() {
   color("#522B23") linear_extrude(0.9 * thickness) {
     // Thin ring
     difference() {
-      circle(0.88 * radius, $fn=180);
       circle(0.87 * radius, $fn=180);
+      circle(0.86 * radius, $fn=180);
     }
     
     dots();
     
-    rotate([0, 0, 32]) revolve_text(0.65 * radius, "TURBO", 80);
-    rotate([0, 0, -32]) bottom_revolve_text(0.65 * radius, "NATIVE", 80);
+    rotate([0, 0, 32]) revolve_text(0.64 * radius, "TURBO", 80);
+    rotate([0, 0, -32]) bottom_revolve_text(0.64 * radius, "NATIVE", 80);
     
     
     // Innermost ring
     difference() {
-      circle(0.63 * radius, $fn=180);
-      circle(0.60 * radius, $fn=180);
+      circle(0.62 * radius, $fn=180);
+      circle(0.59 * radius, $fn=180);
     }
     
     side_bars();
@@ -65,20 +65,14 @@ module badge() {
 }
 
 module dot() {
-  translate([0, 0.92 * radius, 0]) {
-    circle(0.01 * radius);
-  }
-  translate([-0.01 * radius, 0.9 * radius, 0]) {
-    square(0.02 * radius);
-  }
-  translate([0, 0.9 * radius, 0]) {
-    circle(0.01 * radius);
+  translate([0, 0.905 * radius, 0]) {
+    circle(0.025 * radius, $fn=15);
   }
 }
 
 module dots() {
-  for(i = [0:179]) {
-    rotate([0, 0, 2 * i]) {
+  for(i = [0:89]) {
+    rotate([0, 0, 4 * i]) {
       dot();
     }
   }
